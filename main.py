@@ -1,4 +1,4 @@
-import pickle
+import pandas as pd
 import streamlit as st
 
 def recommend(drama):
@@ -14,8 +14,8 @@ def recommend(drama):
     return recommended_movie_names, recommended_movie_posters
 
 st.header('K-Drama Recommender System')
-dramas = pickle.load(open('kdrama_list.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+dramas = pd.read_pickle('kdrama_list.pkl')
+similarity = pd.read_pickle('similarity.pkl')
 
 
 kdrama_list = dramas['name'].values
